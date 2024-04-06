@@ -1,1 +1,1 @@
-# spring-data-redis-cache
+Spring Data Redis provides easy integration with Redis, a popular open-source, in-memory data structure store used as a database, cache, and message broker. When combined with Spring Boot, it offers seamless configuration and integration with Spring-based applications.
