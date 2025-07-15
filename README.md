@@ -1,44 +1,74 @@
-This project demonstrates how to integrate Google ReCaptcha v2 validation in a Spring Boot application.
+# 🚀 Spring Boot Redis Caching Example
 
-## Prerequisites
+This project demonstrates how to integrate **Redis** with a **Spring Boot** application for caching using Spring's annotation-based caching abstraction.
 
-Before you begin, ensure you have met the following requirements:
-- You have a valid Google ReCaptcha site key and secret key.
-- JDK 8 or higher installed on your machine.
-- Apache Maven installed.
+## 📦 Technologies Used
 
-## Setup
+- Spring Boot
+- Spring Cache Abstraction
+- Redis
+- Spring Data Redis
+- Maven / Gradle
+- Java 8+
 
-1. **Clone the repository:**
-    ```shell
-    git clone https://github.com/your-username/your-project.git
-    ```
+---
 
-2. **Navigate to the project directory:**
-    ```shell
-    cd your-project
-    ```
+## ✅ Features
 
-3. **Open `application.properties` file** and replace `YOUR_RECAPTCHA_SITE_KEY` and `YOUR_RECAPTCHA_SECRET_KEY` with your actual Google ReCaptcha site key and secret key.
+- Enable and configure caching in Spring Boot
+- Connect Spring Boot with Redis server
+- Use `@Cacheable`, `@CacheEvict`, and `@CachePut`
+- Configure TTL (Time-To-Live) for cache entries
+- Define custom cache key generators
+- Condition-based caching
 
-4. **Build the project:**
-    ```shell
-    mvn clean install
-    ```
+---
 
-5. **Run the application:**
-    ```shell
-    mvn spring-boot:run
-    ```
+## 🔧 Setup Instructions
 
-6. **Access the application** in your browser at `http://localhost:8080`.
+### 1. 🧱 Prerequisites
 
-## Usage
+- Java 8 or higher
+- Redis Server installed and running on `localhost:6379`
+- Maven or Gradle
 
-1. Navigate to the registration page.
-2. Fill in the registration form.
-3. Complete the Google ReCaptcha challenge.
-4. Submit the form.
-5. If the ReCaptcha validation succeeds, you will be registered successfully.
+### 2. 📁 Add Dependencies
+
+#### For Maven:
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-cache</artifactId>
+</dependency>
+```
+
+### ⚙️ Configuration (`application.properties`)
+
+```properties
+spring.cache.type=redis
+spring.redis.host=localhost
+spring.redis.port=6379
+```
+
+### 📌 Annotations Used
+
+- `@EnableCaching` – Enable caching support
+- `@Cacheable` – Read from/write to cache
+- `@CacheEvict` – Remove entries from cache
+- `@CachePut` – Update cache without skipping method
+
+---
+
+### 🧪 Verify with Redis CLI
+
+```bash
+redis-cli
+> KEYS *
+> GET your-cache-key
+```
 
 ![Redis image](https://miro.medium.com/v2/resize:fit:1167/1*7opjR94hTXrBPrYF7EDgqg.png)
